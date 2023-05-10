@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{397CD0DA-E7FF-4D62-9E73-DEE677E16D8D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{489252E3-6BFA-474B-85CE-8ABB5BC6290E}"
+	ProjectSection(SolutionItems) = preProject
+		docs\GoSupply Challenge.pdf = docs\GoSupply Challenge.pdf
+		docs\README.md = docs\README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{8F7950DC-A163-4132-BA76-341749DBC4B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoSupply.Domain", "src\Domain\GoSupply.Domain.csproj", "{AA057C51-E8AE-41B6-8422-2D4D745DD5F7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AA057C51-E8AE-41B6-8422-2D4D745DD5F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA057C51-E8AE-41B6-8422-2D4D745DD5F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA057C51-E8AE-41B6-8422-2D4D745DD5F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA057C51-E8AE-41B6-8422-2D4D745DD5F7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AA057C51-E8AE-41B6-8422-2D4D745DD5F7} = {397CD0DA-E7FF-4D62-9E73-DEE677E16D8D}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3C940535-5F20-4D8B-A353-B3217AA9583F}
+	EndGlobalSection
+EndGlobal
