@@ -1,0 +1,31 @@
+﻿namespace GoSupply.Domain.Entities
+{
+    public class Student
+    {
+        [Key]
+        public int StudentId { get; set; }
+
+        [Required]
+        public string Name { get; set; }
+
+        [Required]
+        public string SurName { get; set; }
+
+        [Required]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}")]
+        public DateTime BirthDate { get; set; }
+
+        [Required]
+        public Gender Gender { get; set; }
+
+        [Required]
+        public string Address { get; set; }
+
+        public int tcol_est { get; set; }
+
+        public int gins_est { get; set; }
+
+        public int DistrictId { get; set; }
+    }
+}
