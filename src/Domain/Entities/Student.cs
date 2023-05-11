@@ -3,7 +3,7 @@
     public class Student
     {
         [Key]
-        public int StudentId { get; set; }
+        public int Id { get; set; }
 
         [Required]
         public string Name { get; set; }
