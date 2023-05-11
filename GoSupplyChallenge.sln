@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoSupply.Host.Api", "src\Ho
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoSupply.Infrastructure", "src\Infrastructure\GoSupply.Infrastructure.csproj", "{113E0D17-BAB4-4A78-963E-0873B32138E1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoSupply.Test", "test\GoSupply.Test.csproj", "{C20CA2FB-E884-4DFA-9FBF-9AA63D5B3927}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{113E0D17-BAB4-4A78-963E-0873B32138E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{113E0D17-BAB4-4A78-963E-0873B32138E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{113E0D17-BAB4-4A78-963E-0873B32138E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C20CA2FB-E884-4DFA-9FBF-9AA63D5B3927}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C20CA2FB-E884-4DFA-9FBF-9AA63D5B3927}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C20CA2FB-E884-4DFA-9FBF-9AA63D5B3927}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C20CA2FB-E884-4DFA-9FBF-9AA63D5B3927}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -45,6 +51,7 @@ Global
 		{AA057C51-E8AE-41B6-8422-2D4D745DD5F7} = {397CD0DA-E7FF-4D62-9E73-DEE677E16D8D}
 		{C750DD78-30E1-4F86-A976-00464BC4F1F8} = {397CD0DA-E7FF-4D62-9E73-DEE677E16D8D}
 		{113E0D17-BAB4-4A78-963E-0873B32138E1} = {397CD0DA-E7FF-4D62-9E73-DEE677E16D8D}
+		{C20CA2FB-E884-4DFA-9FBF-9AA63D5B3927} = {8F7950DC-A163-4132-BA76-341749DBC4B1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3C940535-5F20-4D8B-A353-B3217AA9583F}
