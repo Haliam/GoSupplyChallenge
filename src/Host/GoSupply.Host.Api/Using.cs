@@ -1,0 +1,1 @@
+﻿global using GoSupply.Infrastructure.Persistence.Database;
