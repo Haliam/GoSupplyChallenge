@@ -2,15 +2,15 @@
 {
     public class GoSupplyContext
     {
-        private IConfiguration IConfiguration { get;}
+        private IConfiguration Configuration { get;}
 
         private string ConnectionString { get;}
 
         public GoSupplyContext(IConfiguration configuration)
         {
-            IConfiguration = configuration;
+            Configuration = configuration;
 
-            ConnectionString = IConfiguration.GetConnectionString("SqlConnection");
+            ConnectionString = Configuration.GetConnectionString("SqlConnection");
         }
 
         public IDbConnection CreateConnection() => new SqlConnection(ConnectionString);
