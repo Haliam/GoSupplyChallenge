@@ -1,4 +1,4 @@
-using GoSupply.Infrastructure.Persistence.Repositories;
+using GoSupply.Application.AppServices;
 
 namespace GoSupply.Host.Api
 {
@@ -9,8 +9,9 @@ namespace GoSupply.Host.Api
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            builder.Services.AddSingleton<GoSupplyContext>();
             builder.Services.AddScoped<IStudentRepository, StudentRepository>();
+            builder.Services.AddScoped<IStudentAppService, StudentAppService>();
+            builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
