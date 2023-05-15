@@ -1,9 +1,8 @@
-﻿namespace GoSupply.Domain.Entities
+﻿namespace GoSupply.Domain.Entities;
+
+public enum GenderEnum
 {
-    public enum GenderEnum
-    {
-        Female = 0,
-        Male = 1,
-        Unspecified = 2
-    }
+    Female = 0,
+    Male = 1,
+    Unspecified = 2
 }

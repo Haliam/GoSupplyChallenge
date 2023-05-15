@@ -1,9 +1,8 @@
-﻿namespace GoSupply.Application.AppServices
-{
-    public abstract class AppServiceBase
-    {
-        protected IMapper Mapper { get; }
+﻿namespace GoSupply.Application.AppServices;
 
-        protected AppServiceBase(IMapper mapper) => Mapper = mapper;
-    }
+public abstract class AppServiceBase
+{
+    protected IMapper Mapper { get; }
+
+    protected AppServiceBase(IMapper mapper) => Mapper = mapper;
 }

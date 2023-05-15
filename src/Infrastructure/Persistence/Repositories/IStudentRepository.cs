@@ -1,6 +1,5 @@
-﻿namespace GoSupply.Infrastructure.Persistence.Repositories
+﻿namespace GoSupply.Infrastructure.Persistence.Repositories;
+
+public interface IStudentRepository : IRepository<Student>
 {
-    public interface IStudentRepository : IRepository<Student>
-    {
-    }
 }

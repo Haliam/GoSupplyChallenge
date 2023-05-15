@@ -1,28 +1,27 @@
-﻿namespace GoSupply.Domain.Entities
+﻿namespace GoSupply.Domain.Entities;
+
+public class Teacher
 {
-    public class Teacher
-    {
-        [Key]
-        public int Id { get; set; }
+    [Key]
+    public int Id { get; set; }
 
-        [Required]
-        public string Name { get; set; }
+    [Required]
+    public string Name { get; set; }
 
-        [Required]
-        public string SurName { get; set; }
+    [Required]
+    public string SurName { get; set; }
 
-        [Required]
-        public string Address { get; set; }
+    [Required]
+    public string Address { get; set; }
 
-        [Required]
-        public string MobileNumber { get; set; }
+    [Required]
+    public string MobileNumber { get; set; }
 
-        public string PhoneNumber { get; set; }
+    public string PhoneNumber { get; set; }
 
-        [Required]
-        public string Graduate { get; set; }
+    [Required]
+    public string Graduate { get; set; }
 
-        [Required]
-        public int ProfessionId { get; set; }
-    }
+    [Required]
+    public int ProfessionId { get; set; }
 }

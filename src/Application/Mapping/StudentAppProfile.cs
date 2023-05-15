@@ -1,13 +1,9 @@
-﻿using GoSupply.Application.Dtos;
-using GoSupply.Domain.Entities;
+﻿namespace GoSupply.Application.Mapping;
 
-namespace GoSupply.Application.Mapping
+public class StudentAppProfile : Profile
 {
-    public class StudentAppProfile : Profile
+    public StudentAppProfile()
     {
-        public StudentAppProfile()
-        {
-            CreateMap<Student, StudentDto>().ReverseMap();
-        }
+        CreateMap<Student, StudentDto>().ReverseMap();
     }
 }

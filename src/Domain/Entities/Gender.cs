@@ -1,7 +1,6 @@
-﻿namespace GoSupply.Domain.Entities
+﻿namespace GoSupply.Domain.Entities;
+
+public class Gender
 {
-    public class Gender
-    {
-        public GenderEnum GenderEnum { get; set; }
-    }
+    public GenderEnum GenderEnum { get; set; }
 }

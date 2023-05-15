@@ -1,20 +1,26 @@
-﻿
-namespace GoSupply.Application.Dtos
+﻿namespace GoSupply.Application.Dtos;
+
+public class StudentDto
 {
-    public class StudentDto
-    {
-        public int Id { get; set; }
+    [JsonIgnore]
+    public int Id { get; set; }
 
-        public string Name { get; set; }
+    [Required]
+    public string Name { get; set; }
 
-        public string SurName { get; set; }
+    [Required]
+    public string SurName { get; set; }
 
-        public DateTime BirthDate { get; set; }
+    [Required]
+    [DataType(DataType.Date)]
+    [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}")]
+    public DateTime BirthDate { get; set; }
 
-        public string Gender { get; set; }
+    [Required]
+    public string Gender { get; set; }
 
-        public string Address { get; set; }
+    [Required]
+    public string Address { get; set; }
 
-        public int DistrictId { get; set; }
-    }
+    public int DistrictId { get; set; }
 }

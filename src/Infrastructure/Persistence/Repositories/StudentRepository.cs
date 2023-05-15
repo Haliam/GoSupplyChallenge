@@ -1,10 +1,9 @@
-﻿namespace GoSupply.Infrastructure.Persistence.Repositories
+﻿namespace GoSupply.Infrastructure.Persistence.Repositories;
+
+public class StudentRepository : Repository<Student>, IStudentRepository
 {
-    public class StudentRepository : Repository<Student>, IStudentRepository
+    public StudentRepository(IConfiguration configuration) 
+        : base(configuration)
     {
-        public StudentRepository(IConfiguration configuration) 
-            : base(configuration)
-        {
-        }
     }
 }
