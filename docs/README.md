@@ -1,12 +1,23 @@
 # GoSupplyChallenge
 
-The goal of this challenge is to develop a web api with basic security that has the following sql queries for:
+The goal of this training is to develop a web API using Dapper with SQL queries or stored procedures to retrieve the data.
+Some technologies and patterns used are:
+API Restfull, Authentication, and Authorization with JWTbearer, DDD, DI, AutoMapper, Repository Pattern,  xUnit, and.NET 6
+Clean Code and Solid.
+
+### Requirements for API: 
 
     1. Insert students  
     2. Return the students of a province.  
     3. Group (LINQ) to get the number of students per teacher.
 
-On Database (A complete procedure, with parameters, body, etc... will work)
+### Requirements for Database: 
+ (A complete procedure, with parameters, body, etc... will work)
+
     1. Obtain the different provinces to which the students belong and the number of students in each province (SQL). 
     2. Obtain the province that has more students in the course (course must be a parameter of the procedure) and then 
     how this procedure would be executed in sqlserver.
+
+### Some pending developments: 
+    Add Sql Query Builder as SqlKata or using Dapper
+ 
