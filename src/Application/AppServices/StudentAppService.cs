@@ -50,8 +50,9 @@ public class StudentAppService : AppServiceBase, IStudentAppService
     {
         var procedure = "UpdateStudent";
 
-        var parameters = new StudentDto
+        var parameters = new 
         {
+            Id = id,
             Name = studentDto.Name,
             SurName = studentDto.SurName,
             BirthDate= studentDto.BirthDate,
