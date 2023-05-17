@@ -2,4 +2,5 @@
 
 public interface IStudentAppService : IAppService<StudentDto>
 {
+    Task<IEnumerable<StudentDto>> GetByProvinceAsync(string province);
 }

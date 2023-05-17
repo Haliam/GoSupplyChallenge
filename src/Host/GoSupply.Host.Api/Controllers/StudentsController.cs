@@ -17,12 +17,15 @@ public class StudentsController : ControllerBase
     [HttpGet("{id}")]
     public async Task<StudentDto> GetByIdAsync(int id) => await StudentAppService.GetByIdAsync(id);
 
+    [HttpGet("byprovince/{province}")]
+    public async Task<IEnumerable<StudentDto>> GetByProvinceAsync(string province) => await StudentAppService.GetByProvinceAsync(province);
+
     [HttpPost]
-    public async Task Insert([FromBody] StudentDto studentDto) => await StudentAppService.InsertAsync(studentDto);
+    public async Task InsertAsync([FromBody] StudentDto studentDto) => await StudentAppService.InsertAsync(studentDto);
 
     [HttpPut("{id}")]
-    public async Task Update(int id, [FromBody] StudentDto studentDto) => await StudentAppService.UpdateAsync(id, studentDto);
+    public async Task UpdateAsync(int id, [FromBody] StudentDto studentDto) => await StudentAppService.UpdateAsync(id, studentDto);
 
     [HttpDelete("{id}")]
-    public async Task Delete(int id) => await StudentAppService.DeleteAsync(id);
+    public async Task DeleteAsync(int id) => await StudentAppService.DeleteAsync(id);
 }

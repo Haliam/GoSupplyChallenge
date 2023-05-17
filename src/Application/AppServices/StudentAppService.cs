@@ -72,4 +72,21 @@ public class StudentAppService : AppServiceBase, IStudentAppService
 
         return await StudentQueryRepository.ExecuteAsync(procedure, parameters);
     }
+
+    public async Task<IEnumerable<StudentDto>> GetByProvinceAsync(string province)
+    {
+        var sqlQuery = "SELECT s.* " +
+            "FROM Student s " +
+            "INNER JOIN District d ON s.DistrictId = d.id " +
+            "INNER JOIN Province p ON d.ProvinceId = p.id " +
+            "WHERE p.Name = @ProvinceName;";
+
+        var parameters = new { ProvinceName = province };
+
+        var students =  await StudentQueryRepository.QueryAsync(sqlQuery, parameters);
+
+        var studentsDto = Mapper.Map<IEnumerable<StudentDto>>(students);
+
+        return studentsDto;
+    }
 }
