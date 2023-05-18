@@ -2,19 +2,23 @@
 
 public class StudentAppService : AppServiceBase, IStudentAppService
 {
-    private IStudentRepository StudentQueryRepository { get; }
+    private IConfiguration Configuration { get; }
 
-    public StudentAppService(IMapper mapper, IStudentRepository studentQueryRepository) 
+    private IStudentRepository StudentRepository { get; }
+
+    public StudentAppService(IMapper mapper, IConfiguration configuration, IStudentRepository studentQueryRepository) 
         : base(mapper)
     {
-        StudentQueryRepository = studentQueryRepository;
+        Configuration = configuration;
+
+        StudentRepository = studentQueryRepository;
     }
 
     public async Task<IEnumerable<StudentDto>> GetAllAsync()
     {
         var sqlQuery = "Select * From Student";
 
-        var students = await StudentQueryRepository.QueryAsync(sqlQuery);
+        var students = await StudentRepository.QueryAsync(sqlQuery);
 
         var studentsDto = Mapper.Map<IEnumerable<StudentDto>>(students);
 
@@ -27,7 +31,7 @@ public class StudentAppService : AppServiceBase, IStudentAppService
 
         var parameters = new { Id = id };
 
-        var student = await StudentQueryRepository.QueryFirstAsync(sqlQuery, parameters);
+        var student = await StudentRepository.QueryFirstAsync(sqlQuery, parameters);
 
         var studentDto = Mapper.Map<StudentDto>(student);
 
@@ -41,7 +45,7 @@ public class StudentAppService : AppServiceBase, IStudentAppService
             "VALUES(@Name, @SurName, @BirthDate, @Gender, @Address, @DistrictId);" +
             "SELECT SCOPE_IDENTITY();";
 
-        var result = await StudentQueryRepository.ExecuteAsync(sqlQuery, studentDto);
+        var result = await StudentRepository.ExecuteAsync(sqlQuery, studentDto);
 
         return result;
     }
@@ -61,7 +65,7 @@ public class StudentAppService : AppServiceBase, IStudentAppService
             DistrictId = studentDto.DistrictId
         };
 
-        return await StudentQueryRepository.ExecuteAsync(procedure, parameters);
+        return await StudentRepository.ExecuteAsync(procedure, parameters);
     }
 
     public async Task<int> DeleteAsync(int id)
@@ -70,7 +74,7 @@ public class StudentAppService : AppServiceBase, IStudentAppService
 
         var parameters = new { Id = id };
 
-        return await StudentQueryRepository.ExecuteAsync(procedure, parameters);
+        return await StudentRepository.ExecuteAsync(procedure, parameters);
     }
 
     public async Task<IEnumerable<StudentDto>> GetByProvinceAsync(string province)
@@ -83,10 +87,28 @@ public class StudentAppService : AppServiceBase, IStudentAppService
 
         var parameters = new { ProvinceName = province };
 
-        var students =  await StudentQueryRepository.QueryAsync(sqlQuery, parameters);
+        var students =  await StudentRepository.QueryAsync(sqlQuery, parameters);
 
         var studentsDto = Mapper.Map<IEnumerable<StudentDto>>(students);
 
         return studentsDto;
+    }
+
+    public async Task<IEnumerable<StudentsByTeacherDto>> GetAllStudentsByTeacherAsync()
+    {
+        using IDbConnection db = new SqlConnection(Configuration.GetConnectionString("DefaultConnection"));
+
+        var query = from teacher in db.Query<Teacher>("SELECT Id, Name FROM Teacher")
+                       join assignment in db.Query<Assignment>("SELECT TeacherId, CourseId FROM Assignment") on teacher.Id equals assignment.TeacherId
+                       join enrolment in db.Query<Enrolment>("SELECT CourseId, StudentId FROM Enrolment") on assignment.CourseId equals enrolment.CourseId
+                       join student in db.Query<Student>("SELECT Id FROM Student") on enrolment.StudentId equals student.Id
+                       group enrolment by teacher.Name into g
+                       select new StudentsByTeacherDto
+                       {
+                           TeacherName = g.Key,
+                           StudentNumber = g.Select(e => e.StudentId).Distinct().Count()
+                       };
+
+        return query.ToList();
     }
 }
