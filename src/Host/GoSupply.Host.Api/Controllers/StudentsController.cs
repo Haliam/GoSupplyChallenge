@@ -20,6 +20,9 @@ public class StudentsController : ControllerBase
     [HttpGet("byprovince/{province}")]
     public async Task<IEnumerable<StudentDto>> GetByProvinceAsync(string province) => await StudentAppService.GetByProvinceAsync(province);
 
+    [HttpGet("allstudentsbyteacher")]
+    public async Task<IEnumerable<StudentsByTeacherDto>> GetAllStudentsByTeacherAsync() => await StudentAppService.GetAllStudentsByTeacherAsync();
+
     [HttpPost]
     public async Task InsertAsync([FromBody] StudentDto studentDto) => await StudentAppService.InsertAsync(studentDto);
 
