@@ -1,0 +1,134 @@
+
+			 ---------All Stored Procedures----------
+
+---------------------------------------------------------------
+--Get all Students--
+---------------------------------------------------------------
+CREATE PROCEDURE [dbo].[GetAllStudents]
+AS
+BEGIN
+	SET NOCOUNT ON;
+	SELECT * FROM Student;
+END
+
+EXEC GetAllStudents;
+
+---------------------------------------------------------------
+--Get Student by Id--
+---------------------------------------------------------------
+CREATE PROCEDURE [dbo].[GetStudentById]
+	@Id int
+AS
+BEGIN
+	SET NOCOUNT ON;
+	SELECT * FROM Student WHERE Id = @Id;
+END
+
+EXEC GetStudentById @Id = 7;
+
+---------------------------------------------------------------
+--Get Students By Province--
+---------------------------------------------------------------
+CREATE PROCEDURE GetStudentsByProvince
+	@ProvinceName NVARCHAR(100)
+AS
+BEGIN
+	SET NOCOUNT ON;
+
+	SELECT s.*
+	FROM Student s
+	INNER JOIN District d ON s.DistrictId = d.id
+	INNER JOIN Province p ON d.ProvinceId = p.id
+	WHERE p.Name = @ProvinceName
+END
+
+EXEC GetStudentsByProvince @ProvinceName = 'A Coruña'
+---------------------------------------------------------------
+--Insert Student--
+-------------------------------------------------------------
+CREATE PROCEDURE [dbo].[InsertStudent]
+	@Name nvarchar(50),
+	@SurName nvarchar(50),
+	@BirthDate datetime,
+	@Gender nvarchar(10),
+	@Address nvarchar(100),
+	@DistrictId int
+AS
+BEGIN
+	SET NOCOUNT ON;
+	INSERT INTO Student (Name, SurName, BirthDate, Gender, Address, DistrictId)
+	VALUES (@Name, @SurName, @BirthDate, @Gender, @Address, @DistrictId);
+	SELECT SCOPE_IDENTITY();
+END
+
+EXEC InsertStudent  @Name = 'Roberto',  @SurName = 'Mariachi', @BirthDate ='1990-05-15',  @Gender = 'Masculino',  @Address = 'Diputacion 76',  @DistrictId = 1
+---------------------------------------------------------------
+--Update Student--
+---------------------------------------------------------------
+CREATE PROCEDURE [dbo].[UpdateStudent]
+	@StudentId int,
+	@Name nvarchar(50),
+	@SurName nvarchar(50),
+	@BirthDate datetime,
+	@Gender nvarchar(10),
+	@Address nvarchar(100),
+	@DistrictId int
+AS
+BEGIN
+	SET NOCOUNT ON;
+	UPDATE Student SET
+		[Name] = @Name,
+		SurName = @SurName,
+		BirthDate = @BirthDate,
+		Gender = @Gender,
+		[Address] = @Address,
+		DistrictId = @DistrictId
+	WHERE Id = @StudentId;
+END
+
+EXEC UpdateStudent  @Name = 'Roberto',  @SurName = 'Pacheco', @BirthDate ='1990-05-15',  @Gender = 'Masculino',  @Address = 'Diputacion 76',  @DistrictId = 4, @Id = 47;
+---------------------------------------------------------------
+--Delete Student---
+---------------------------------------------------------------
+CREATE PROCEDURE [dbo].[DeleteStudent]
+	@Id int
+AS
+BEGIN
+	SET NOCOUNT ON;
+	DELETE FROM Student WHERE Id = @Id;
+END
+
+EXEC DeleteStudent @Id = 25;
+---------------------------------------------------------------
+--Insert District--
+---------------------------------------------------------------
+CREATE PROCEDURE [dbo].[InsertDistrict]
+	@Name nvarchar(100),
+	@ProvinceId int
+AS
+BEGIN
+	SET NOCOUNT ON;
+
+	INSERT INTO District(Name, ProvinceId)
+	VALUES (@Name, @ProvinceId);
+END
+
+EXEC InsertDistrict @Name = 'Santa Lucía', @ProvinceId = '38';
+---------------------------------------------------------------
+--Authenticate User--
+---------------------------------------------------------------
+
+CREATE PROCEDURE [dbo].[AuthenticateUser]
+	@UserName nvarchar(50),
+	@Password nvarchar(50)
+AS
+BEGIN
+	SET NOCOUNT ON;
+SELECT 
+[UserId], [UserName], [Email], [FirstName], [LastName], [Role]
+FROM [dbo].[UserLogin] 
+INNER JOIN [User] ON [UserId] = [User].Id
+WHERE [UserName] = @UserName AND [Password] = @Password 
+END
+
+EXEC AuthenticateUser @UserName = 'JohnDoe', @Password = 'johndoe#1990';
