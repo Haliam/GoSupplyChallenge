@@ -40,14 +40,19 @@ public class StudentAppService : AppServiceBase, IStudentAppService
 
     public async Task<int> InsertAsync(StudentDto studentDto)
     {
-        var sqlQuery = "SET NOCOUNT ON;" +
-            "INSERT INTO Student (Name, SurName, BirthDate, Gender, Address, DistrictId)" +
-            "VALUES(@Name, @SurName, @BirthDate, @Gender, @Address, @DistrictId);" +
-            "SELECT SCOPE_IDENTITY();";
+        var procedure = "InsertStudent";
 
-        var result = await StudentRepository.ExecuteAsync(sqlQuery, studentDto);
+        var parameters = new
+        {
+            Name = studentDto.Name,
+            SurName = studentDto.SurName,
+            BirthDate = studentDto.BirthDate,
+            Gender = studentDto.Gender,
+            Address = studentDto.Address,
+            DistrictId = studentDto.DistrictId
+        };
 
-        return result;
+        return await StudentRepository.ExecuteAsync(procedure, parameters);
     }
 
     public async Task<int> UpdateAsync(int id, StudentDto studentDto)

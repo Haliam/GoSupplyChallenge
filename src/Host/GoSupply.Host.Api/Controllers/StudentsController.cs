@@ -24,11 +24,14 @@ public class StudentsController : ControllerBase
     public async Task<IEnumerable<StudentsByTeacherDto>> GetAllStudentsByTeacherAsync() => await StudentAppService.GetAllStudentsByTeacherAsync();
 
     [HttpPost]
+    [Authorize(Roles = "Manager")]
     public async Task InsertAsync([FromBody] StudentDto studentDto) => await StudentAppService.InsertAsync(studentDto);
 
     [HttpPut("{id}")]
+    [Authorize(Roles = "User")]
     public async Task UpdateAsync(int id, [FromBody] StudentDto studentDto) => await StudentAppService.UpdateAsync(id, studentDto);
 
     [HttpDelete("{id}")]
+    [Authorize(Roles = "Admin")]
     public async Task DeleteAsync(int id) => await StudentAppService.DeleteAsync(id);
 }
