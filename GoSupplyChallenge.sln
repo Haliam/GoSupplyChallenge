@@ -21,7 +21,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoSupply.Infrastructure", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoSupply.Test", "test\GoSupply.Test.csproj", "{C20CA2FB-E884-4DFA-9FBF-9AA63D5B3927}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoSupply.Application", "src\Application\GoSupply.Application.csproj", "{DAB59456-D657-4AFE-B4ED-5A6CCC87AEB5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GoSupply.Application", "src\Application\GoSupply.Application.csproj", "{DAB59456-D657-4AFE-B4ED-5A6CCC87AEB5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{52927CCE-01E4-42C1-ACD1-8A409FF08D68}"
+	ProjectSection(SolutionItems) = preProject
+		docs\Database\01 CreateGoSupplyDataBase.txt = docs\Database\01 CreateGoSupplyDataBase.txt
+		docs\Database\02 PopulateTables.txt = docs\Database\02 PopulateTables.txt
+		docs\Database\03 StoredProcedures.txt = docs\Database\03 StoredProcedures.txt
+		docs\Database\04 GetNumberStudentsByProvinceProcedure.txt = docs\Database\04 GetNumberStudentsByProvinceProcedure.txt
+		docs\Database\05 GetProvinceWithMostStudentsByCourseProcedure.txt = docs\Database\05 GetProvinceWithMostStudentsByCourseProcedure.txt
+		docs\Database\06 UsersRolesPassword.txt = docs\Database\06 UsersRolesPassword.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +69,7 @@ Global
 		{113E0D17-BAB4-4A78-963E-0873B32138E1} = {397CD0DA-E7FF-4D62-9E73-DEE677E16D8D}
 		{C20CA2FB-E884-4DFA-9FBF-9AA63D5B3927} = {8F7950DC-A163-4132-BA76-341749DBC4B1}
 		{DAB59456-D657-4AFE-B4ED-5A6CCC87AEB5} = {397CD0DA-E7FF-4D62-9E73-DEE677E16D8D}
+		{52927CCE-01E4-42C1-ACD1-8A409FF08D68} = {489252E3-6BFA-474B-85CE-8ABB5BC6290E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3C940535-5F20-4D8B-A353-B3217AA9583F}

@@ -1,0 +1,28 @@
+
+---------------------------------------------------------------
+--Get the number of Students By Province--
+---------------------------------------------------------------
+
+
+SELECT P.Name AS ProvinceName, COUNT(DISTINCT S.Id) AS StudentNumber
+FROM Province P
+JOIN District D ON P.Id = D.ProvinceId
+JOIN Student S ON D.Id = S.DistrictId
+GROUP BY P.Name
+---------------------------------------------------------------
+
+CREATE PROCEDURE GetStudentCountByProvince
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT p.Name, COUNT(s.Id) AS StudentCount
+    FROM Province p
+    JOIN District d ON p.Id = d.ProvinceId
+    JOIN Student s ON d.Id = s.DistrictId
+    GROUP BY p.Name;
+END;
+
+---------------------------------------------------------------
+
+EXEC GetStudentCountByProvince;

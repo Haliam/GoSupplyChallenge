@@ -1,0 +1,37 @@
+
+---------------------------------------------------------------
+--Get the province that has the most students on the course--
+---------------------------------------------------------------
+
+SELECT p.Name AS Province, c.Name AS Course, COUNT(s.Id) AS StudentCount
+FROM Province p
+JOIN District d ON p.Id = d.ProvinceId
+JOIN Student s ON d.Id = s.DistrictId
+JOIN Enrolment e ON s.Id = e.StudentId
+JOIN Course c ON e.CourseId = c.Id
+WHERE c.Name = 'Photography for Beginners'
+GROUP BY p.Name, c.Name
+ORDER BY StudentCount DESC;
+
+---------------------------------------------------------------
+
+CREATE PROCEDURE GetProvinceStudentCountByCourse
+    @CourseName NVARCHAR(50)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT p.Name AS Province, c.Name AS Course, COUNT(s.Id) AS StudentCount
+    FROM Province p
+    JOIN District d ON p.Id = d.ProvinceId
+    JOIN Student s ON d.id = s.DistrictId
+    JOIN Enrolment e ON s.Id = e.StudentId
+    JOIN Course c ON e.CourseId = c.Id
+    WHERE c.Name = @CourseName
+    GROUP BY p.Name, c.Name
+    ORDER BY StudentCount DESC;
+END;
+
+---------------------------------------------------------------
+
+EXEC GetProvinceStudentCountByCourse @CourseName = 'Photography for Beginners';

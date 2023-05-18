@@ -1,0 +1,275 @@
+--Populates Tables---
+---------------------------------------------------------------
+--Populate Assignment--
+---------------------------------------------------------------
+INSERT INTO [dbo].[Assignment] ([AssignmentDate], [CourseId], [TeacherId])
+VALUES
+	('2023-01-01', 1, 2),
+	('2023-01-02', 2, 2),
+	('2023-01-03', 3, 3),
+	('2023-01-04', 4, 7),
+	('2023-01-05', 5, 3),
+	('2023-01-06', 6, 9),
+	('2023-01-07', 7, 4),
+	('2023-01-08', 8, 6),
+	('2023-01-09', 9, 5),
+	('2023-01-10', 10, 8);
+
+---------------------------------------------------------------
+--Populate Course--
+---------------------------------------------------------------
+INSERT INTO [dbo].[Course] ([Name], [Price], [Duration])
+VALUES
+	('Introduction to Programming', 299.99, 30),
+	('Web Development Fundamentals', 149.99, 45),
+	('Data Analysis with Python', 199.99, 45),
+	('Mobile App Development', 249.99, 50),
+	('Graphic Design Basics', 79.99, 21),
+	('Project Management Essentials', 179.99, 50),
+	('Digital Marketing Fundamentals', 129.99, 25),
+	('English Language Proficiency', 149.99, 45),
+	('Photography for Beginners', 199.99, 20),
+	('Financial Planning and Investing', 399.99, 60);
+
+---------------------------------------------------------------
+--Populate District--
+---------------------------------------------------------------
+-- A Coruña
+INSERT INTO District (Name, ProvinceId) VALUES
+('A Coruña', 1),
+('Arteixo', 1),
+('Culleredo', 1),
+('Ferrol', 1),
+('Narón', 1);
+
+-- Álava
+INSERT INTO District (Name, ProvinceId) VALUES
+('Vitoria-Gasteiz', 2),
+('Llodio', 2),
+('Amurrio', 2),
+('Salvatierra/Agurain', 2),
+('Ayala/Aiara', 2);
+
+-- Albacete
+INSERT INTO District (Name, ProvinceId) VALUES
+('Albacete', 3),
+('Almansa', 3),
+('Hellín', 3),
+('La Roda', 3),
+('Villarrobledo', 3);
+
+-- Alicante
+INSERT INTO District (Name, ProvinceId) VALUES
+('Alicante/Alacant', 4),
+('Elche/Elx', 4),
+('Torrevieja', 4),
+('Orihuela', 4),
+('Benidorm', 4);
+
+-- Almería
+INSERT INTO District (Name, ProvinceId) VALUES
+('Almería', 5),
+('Roquetas de Mar', 5),
+('El Ejido', 5),
+('Adra', 5),
+('Vícar', 5);
+
+-- Asturias
+INSERT INTO District (Name, ProvinceId) VALUES
+('Gijón', 6),
+('Oviedo', 6),
+('Avilés', 6),
+('Langreo', 6),
+('Mieres', 6);
+
+-- Ávila
+INSERT INTO District (Name, ProvinceId) VALUES
+('Ávila', 7),
+('Arévalo', 7),
+('El Barco de Ávila', 7),
+('Cebreros', 7),
+('Candeleda', 7);
+
+---------------------------------------------------------------
+--Populate Enrolment--
+---------------------------------------------------------------
+INSERT INTO [dbo].[Enrolment] ([EnrolmentDate], [StudentId], [CourseId])
+VALUES
+	('2022-01-01', 2, 1),
+	('2023-01-02', 2, 2),
+	('2022-01-03', 3, 3),
+	('2023-01-04', 4, 8),
+	('2022-01-05', 5, 9),
+	('2023-01-06', 6, 4),
+	('2023-01-07', 7, 5),
+	('2023-01-08', 8, 7),
+	('2023-01-09', 9, 6),
+	('2023-01-10', 11, 10);
+
+---------------------------------------------------------------
+--Populate Profession--
+---------------------------------------------------------------
+INSERT INTO [dbo].[Profession] ([Name])
+VALUES
+	('Software Developer'),
+	('Teacher'),
+	('Graphic Designer'),
+	('Engineer'),
+	('Marketing Manager'),
+	('Architect');
+
+---------------------------------------------------------------
+--Populate Province--
+---------------------------------------------------------------
+INSERT INTO [dbo].[Province]
+		   ([Name])
+	 VALUES
+('A Coruña'), 
+('Álava'), 
+('Albacete'), 
+('Alicante'), 
+('Almería'), 
+('Asturias'), 
+('Ávila'), 
+('Badajoz'), 
+('Barcelona'), 
+('Burgos'), 
+('Cáceres'), 
+('Cádiz'), 
+('Cantabria'), 
+('Castellón'), 
+('Ciudad Real'), 
+('Córdoba'), 
+('Cuenca'), 
+('Gerona'), 
+('Granada'), 
+('Guadalajara'), 
+('Guipúzcoa'), 
+('Huelva'), 
+('Huesca'), 
+('Islas Baleares'), 
+('Jaén'), 
+('La Rioja'), 
+('Las Palmas'), 
+('León'), 
+('Lérida'), 
+('Lugo'), 
+('Madrid'), 
+('Málaga'), 
+('Murcia'), 
+('Navarra'), 
+('Orense'), 
+('Palencia'), 
+('Pontevedra'), 
+('Salamanca'), 
+('Santa Cruz de Tenerife'), 
+('Segovia'), 
+('Sevilla'), 
+('Soria'), 
+('Tarragona'), 
+('Teruel'), 
+('Toledo'), 
+('Valencia'), 
+('Valladolid'), 
+('Vizcaya'), 
+('Zamora'), 
+('Zaragoza');
+
+---------------------------------------------------------------
+--Populate Students--
+---------------------------------------------------------------
+INSERT INTO [dbo].[Student] ([Name], [SurName], [BirthDate], [Gender], [Address], [DistrictId])
+VALUES
+('Juan', 'Pérez', '2000-01-01', 'Masculino', 'Calle 1, Nº 123', 1),
+('María', 'García', '2000-02-02', 'Femenino', 'Calle 2, Nº 456', 2),
+('Pedro', 'Martínez', '2000-03-03', 'Masculino', 'Calle 3, Nº 789', 1),
+('Ana', 'López', '2000-04-04', 'Femenino', 'Calle 4, Nº 1011', 3),
+('Carlos', 'Gómez', '2000-05-05', 'Masculino', 'Calle 5, Nº 1213', 2),
+('Lucía', 'Fernández', '2000-06-06', 'Femenino', 'Calle 6, Nº 1415', 1),
+('Javier', 'Ruiz', '2000-07-07', 'Masculino', 'Calle 7, Nº 1617', 3),
+('Sara', 'Sánchez', '2000-08-08', 'Femenino', 'Calle 8, Nº 1819', 2),
+('David', 'Hernández', '2000-09-09', 'Masculino', 'Calle 9, Nº 2021', 1),
+('Carmen', 'Díaz', '2000-10-10', 'Femenino', 'Calle 10, Nº 2223', 3),
+('Fernando', 'Álvarez', '2000-11-11', 'Masculino', 'Calle 11, Nº 2425', 2),
+('Marina', 'Romero', '2000-12-12', 'Femenino', 'Calle 12, Nº 2627', 1),
+('Rafael', 'Jiménez', '2001-01-01', 'Masculino', 'Calle 13, Nº 2829', 3),
+('Laura', 'Pérez', '2001-02-02', 'Femenino', 'Calle 14, Nº 3031', 2),
+('Francisco', 'García', '2001-03-03', 'Masculino', 'Calle 15, Nº 3233', 1),
+('Isabel', 'Martínez', '2001-04-04', 'Femenino', 'Calle 16, Nº 3435', 3),
+('Manuel', 'López', '2001-05-05', 'Masculino', 'Calle 17, Nº 3637', 2),
+('Elena', 'Gómez', '2001-06-06', 'Femenino', 'Calle 18, Nº 3839', 1),
+('Antonio', 'Fernández', '2001-07-07', 'Masculino', 'Calle 19, Nº 4041', 3),
+('Patricia', 'Ruiz', '2001-08-08', 'Femenino', 'Calle 20, Nº 4243', 2),
+('Juan', 'Pérez', '2000-01-01', 'Masculino', '123 Calle Principal', 5),
+('María', 'González', '2001-02-03', 'Femenino', '456 Calle Elm', 6),
+('Miguel', 'Rodríguez', '1999-05-12', 'Masculino', '789 Calle Roble', 7),
+('Sofía', 'López', '2002-08-15', 'Femenino', '321 Calle Pino', 5),
+('Daniel', 'Gómez', '1998-03-20', 'Masculino', '654 Calle Arce', 6),
+('Olivia', 'Torres', '2003-06-25', 'Femenino', '987 Calle Cedro', 7),
+('Mateo', 'Hernández', '2001-09-08', 'Masculino', '135 Calle Nogal', 5),
+('Valentina', 'Vargas', '2000-12-11', 'Femenino', '246 Calle Abedul', 6),
+('Santiago', 'Jiménez', '1999-04-14', 'Masculino', '753 Calle Abeto', 7),
+('Isabella', 'Silva', '2002-07-17', 'Femenino', '951 Calle Roble', 5),
+('Alejandro', 'Rojas', '1998-02-21', 'Masculino', '357 Calle Pino', 6),
+('Mía', 'Martínez', '2003-05-26', 'Femenino', '468 Calle Arce', 7),
+('Sebastián', 'Pérez', '2001-08-29', 'Masculino', '579 Calle Cedro', 5),
+('Valeria', 'Castro', '2000-11-02', 'Femenino', '684 Calle Nogal', 6),
+('Javier', 'Molina', '1999-01-05', 'Masculino', '793 Calle Abedul', 7),
+('Camila', 'Acosta', '2002-04-10', 'Femenino', '123 Calle Abeto', 5),
+('Benjamín', 'Blanco', '1998-07-13', 'Masculino', '456 Calle Roble', 6),
+('Lucía', 'Luna', '2003-10-16', 'Femenino', '789 Calle Pino', 7),
+('Emilio', 'Góngora', '2001-01-19', 'Masculino', '246 Calle Arce', 5),
+('Ana', 'Mendoza', '2000-04-24', 'Femenino', '357 Calle Cedro', 6);
+
+---------------------------------------------------------------
+--Populate Teacher--
+---------------------------------------------------------------
+INSERT INTO [dbo].[Teacher] ([Name], [SurName], [Address], [PhoneNumber], [MobileNumber], [Graduate], [ProfessionId])
+VALUES
+	('Robert', 'Smith', '123 Main St', '555-1234', '555-5678', 'Master of Science', 1),
+	('Jennifer', 'Johnson', '456 Elm St', '555-5678', '555-9012', 'Doctor of Philosophy', 2),
+	('William', 'Brown', '789 Oak St', '555-9012', '555-3456', 'Master of Business Administration', 1),
+	('Jessica', 'Davis', '321 Maple St', '555-3456', '555-7890', 'Master of Arts', 3),
+	('Christopher', 'Miller', '654 Pine St', '555-7890', '555-2345', 'Bachelor of Science', 4),
+	('Elizabeth', 'Jones', '987 Cedar St', '555-2345', '555-6789', 'Bachelor of Science', 1),
+	('Daniel', 'Williams', '159 Birch St', '555-6789', '555-0123', 'Doctor of Engineering', 2),
+	('Emily', 'Taylor', '753 Walnut St', '555-0123', '555-4567', 'Master of Education', 5),
+	('Matthew', 'Wilson', '852 Spruce St', '555-4567', '555-8901', 'Master of Public Health', 1),
+	('Olivia', 'Anderson', '246 Cherry St', '555-8901', '555-2345', 'Master of Science', 2);
+
+---------------------------------------------------------------
+--Populate User--
+---------------------------------------------------------------
+INSERT INTO [User] (Name, FirstName, LastName, BirthDate, Email, CreatedDate, Role)
+VALUES
+	('John Doe', 'John', 'Doe', '1990-05-01', 'johndoe@example.com', GETDATE(), 1),
+	('Jane Smith', 'Jane', 'Smith', '1992-08-15', 'janesmith@example.com', GETDATE(), 2),
+	('Michael Johnson', 'Michael', 'Johnson', '1988-12-10', 'michaeljohnson@example.com', GETDATE(), 3),
+	('Emily Davis', 'Emily', 'Davis', '1995-04-20', 'emilydavis@example.com', GETDATE(), 4),
+	('David Wilson', 'David', 'Wilson', '1991-11-25', 'davidwilson@example.com', GETDATE(), 1),
+	 ('Sarah Thompson', 'Sarah', 'Thompson', 'sarahth', 'sarah.thompson@example.com', 'password6', GETDATE()),
+	('Andrew Anderson', 'Andrew', 'Anderson', 'andrewa', 'andrew.anderson@example.com', 'password7', GETDATE()),
+	('Olivia Martin', 'Olivia', 'Martin', 'oliviam', 'olivia.martin@example.com', 'password8', GETDATE()),
+	('James Lee', 'James', 'Lee', 'jamesl', 'james.lee@example.com', 'password9', GETDATE()),
+	('Sophia Harris', 'Sophia', 'Harris', 'sophiah', 'sophia.harris@example.com', 'password10', GETDATE());
+
+---------------------------------------------------------------
+--Populate UserLogin--
+---------------------------------------------------------------
+INSERT INTO [UserLogin] (UserName, [Password], UserId)
+VALUES
+('JohnDoe','johndoe#1990', 1),
+('JaneSmith','janesmith@1992', 2),
+('MichaelJohnson','michaeljohnson@1988', 3)
+
+---------------------------------------------------------------
+--Populate UserRoles--
+---------------------------------------------------------------
+INSERT INTO UserRoles (Id, RoleName)
+VALUES 
+	(1, 'Admin'),
+	(2, 'User'),
+	(3, 'Manager'),
+	(4, 'Guest');
+
+
